@@ -1,0 +1,27 @@
+---
+
+- hosts: nodes
+  become: yes
+  tasks:
+    - name: upgrade packages
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+    - name: install basic packages
+      apt:
+        pkg:
+          - net-tools
+          - tldr
+          - build-essential
+          - python3
+          - ranger
+          - wget
+          - curl
+          - lynx
+          - git
+          - ttf-mscorefonts-installer
+          - vim
+          - cmatrix
+          - screen
+        state: latest
+        update_cache: true

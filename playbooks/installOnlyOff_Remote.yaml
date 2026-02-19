@@ -1,0 +1,8 @@
+--- 
+
+- hosts: 192.168.10.51
+  become: yes
+  tasks:
+    - name: Install Only Office deb
+      ansible.builtin.apt:
+        deb: https://download/onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb

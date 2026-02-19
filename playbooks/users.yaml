@@ -1,0 +1,16 @@
+--- 
+- hosts: nodes
+  become: yes
+  tasks:
+    - name: Create SU account avenger
+      ansible.builtin.user:
+        name: avenger
+        comment: PC admin
+        #password must be created with mkpasswd method=sha-512 
+        password: 'some string'
+        groups: adm,sudo
+        append: yes
+    - name: Remove student from sudoers
+      ansible.builtin.user:
+        name: student
+        groups: student,adm,cdrom,dip,plugdev,lpadmin,sambashare

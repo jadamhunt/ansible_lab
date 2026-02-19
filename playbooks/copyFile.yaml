@@ -1,0 +1,24 @@
+---
+
+- hosts: nodes
+  tasks:
+    - name: Copy HostDb File
+      ansible.builtin.copy:
+        src: ~/ansible/scripts/hostdb
+        dest: ~/hostdb
+        owner: {user_name}
+        group: {user_name}
+        mode: '0774'
+
+    - name: Copy Setup Script
+      ansible.builtin.copy:
+        src: ~/ansible/scripts/setup.sh
+        dest: ~/setup.sh
+        owner: {user_name}
+        group: {user_name}
+        mode: '0774'
+    
+    - name: Execute Hostname Setup Script
+      remote_user: {user_name}
+      become: yes
+      script: ~/ansible/scripts/setup.sh

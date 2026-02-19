@@ -1,0 +1,8 @@
+---
+
+- hosts: TWSH108
+  tasks:
+    - name: Set Hostname
+      command: hostnamectl set-hostname {{ inventory_hostname }}
+      become: yes
+

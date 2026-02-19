@@ -1,0 +1,10 @@
+---
+
+- hosts: TWSH108
+  gather_facts: no
+  tasks:
+    - name: Create Python3 alias
+      lineinfile:
+        path: /home/student/.bashrc
+        line: "alias python='python3'"
+

@@ -1,0 +1,56 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+   - name: Install Apt Basics
+     ansible.builtin.apt:
+       pkg:
+       - net-tools
+       - tldr
+       - build-essential
+       - python3
+       - ranger
+       - curl
+       - wget
+       - git
+       - lynx
+       - ttf-mscorefonts-installer
+       - cmatrix
+       - vim
+       - tree
+       - neofetch
+       - tree
+       - nala
+       - snapd
+       state: latest
+       update_cache: true
+  
+   - name: Remove LibreOffice
+     ansible.builtin.apt:
+       name: "libreoffice-*"
+       state: absent
+       autoremove: yes
+
+### Setup the Hostnames
+- hosts: TWSH108
+  tasks:
+    - name: Set Hostname
+      command: hostnamectl set-hostname {{ inventory_hostname }}
+      become: yes
+
+### Install OnlyOffce
+- hosts: TWSH108
+  become: yes
+  tasks:
+    - name: install OnlyOffice via online DEB
+      ansible.builtin.apt:
+        deb: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
+
+### Install VScode via Snapd
+- hosts: TWSH108
+  become: yes
+  tasks:
+    - name: Install VScode
+      flatpak:
+        name: com.visualstudio.code
+        state: present      

@@ -1,0 +1,6 @@
+MAC_ADDR,Client_ID,IP_ADDR,HOSTNAME,DESCR
+2e:5d:27:39:1f:9b,node1,192.168.10.51,node1,Node1's Desc
+2e:5d:27:39:1f:9b,node2,192.168.10.52,node2,node2's Desc
+2e:5d:27:39:1f:9b,node3,192.168.10.53,node3,node3's Desc
+2e:5d:27:39:1f:9b,node4,192.168.10.54,node4,node4's Desc
+2e:5d:27:39:1f:9b,node5,192.168.10.55,node5,node5's Desc

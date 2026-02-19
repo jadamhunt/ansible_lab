@@ -1,0 +1,10 @@
+---
+- hosts: 192.168.10.51
+  tasks:
+    - name: Copy File to Host
+      ansible.builtin.copy:
+        src: ~/Downloads/oo.deb
+        dest: ~/Downloads/oo.deb
+        owner: {user_name}
+        group: {user_name}
+        mode: '0774'

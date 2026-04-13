@@ -4,7 +4,7 @@
 # Hostname retrieval and renaming script
 # J.Hunt (2023)
 # Req:  Run as root or SU
-# Req:  a hostdb comma-delimited file
+# Req:  a hostdb comma-delimited file (/home/$USER)
 #   hostdb headers: MAC_ADDR,Client_ID,IP_ADDR,HOSTNAME,DESCR
 #   Example: 2e:5d:27:39:1f:9b,node1,192.168.10.51,node1,Node1's Desc
 #=========================#
